@@ -2,43 +2,34 @@
 <html>
     <head>
         <div>
-            {{#with js}}
-            <div>
+            {{#with facebook}}
+              <div>
                 <h1>{{name}}</h1>
 
                 {{#with data}}
                 <div>
                    <p>name:{{name}}</p>
+                   <h1>id:{{id}}</h1>
+                   <h2>name:{{name}}</h2>
+                   <h3>gender:{{gender}}</h3>
+                   <h4>age:{{age}}</h4>
                 </div>
                 {{/with}} 
                     <br>
 
                 {{#each data}}
-                   <div>
-                     <p>description:{{description}}</p>
-                     <h2> history:{{history}}</h2>
-                     <h3> year: {{year}}</h3>
-                     <h4> founder: {{founder}}</h4>
-                   </div>
+                    {{#with friends}}
+                        <div>
+                          <span>id:{{id}}</span>
+                          <samp>name:{{name}}</samp>
+                          <b>gender:{{gender}}</b>
+                          <article>age:{{age}}</article>
+                        </div>
+                    {{/with}}    
                 {{/each}}
                     <br>
-
-                 {{#each types}}
-                  <h5>
-                    types:{{types}}
-                  </h5>
-                 {{/each}}
                     <br>
-
-                 {{#each santax}}
-                      <h6> variables:{{variables}} </h6>
-                      <p>  functions: {{functions}}</p>
-                      <p>  conditionals: {{conditionals}}</p>
-                     <span>loops: {{loops}}</span>
-                        <b>classes: {{classes}} </b>
-                 {{/each}}
-
-            </div>
+              </div>
             {{/with}}
         </div>
     </head>
