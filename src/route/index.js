@@ -1,22 +1,36 @@
-// Підключаємо технологію express для back-end сервера
-const express = require('express')
-// Cтворюємо роутер - місце, куди ми підключаємо ендпоїнти
-const router = express.Router()
+<!DOCTYPE html>
+<html>
+    <head>
+        <div>
+            {{#with facebook}}
+              <div>
+                <h1>{{name}}</h1>
 
-// ================================================================
+                {{#with data}}
+                <div>
+                   <p>name:{{name}}</p>
+                   <h1>id:{{id}}</h1>
+                   <h2>name:{{name}}</h2>
+                   <h3>gender:{{gender}}</h3>
+                   <h4>age:{{age}}</h4>
+                </div>
+                {{/with}} 
+                    <br>
 
-// router.get Створює нам один ентпоїнт
-
-//           ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
-  //                  ↑↑ сюди вводимо JSON дані
-})
-
-// ================================================================
-
-// Підключаємо роутер до бек-енду
-module.exports = router
+                {{#each data}}
+                    {{#with friends}}
+                        <div>
+                          <span>id:{{id}}</span>
+                          <samp>name:{{name}}</samp>
+                          <b>gender:{{gender}}</b>
+                          <article>age:{{age}}</article>
+                        </div>
+                    {{/with}}    
+                {{/each}}
+                    <br>
+                    <br>
+              </div>
+            {{/with}}
+        </div>
+    </head>
+</html>
