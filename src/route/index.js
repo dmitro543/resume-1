@@ -1,22 +1,46 @@
-// Підключаємо технологію express для back-end сервера
-const express = require('express')
-// Cтворюємо роутер - місце, куди ми підключаємо ендпоїнти
-const router = express.Router()
+<!DOCTYPE html>
+<html>
+    <head>
+        <div>
+            {{#with mac}}
+              <div>
+                <h1>{{name}}</h1>
 
-// ================================================================
+                {{#with data}}
+                <div>
+                   <p>name: {{name}}</p>
+                   <h1>description: {{description}}</h1>
+                   <h2>pric:{{pric}}</h2>
+                   <h3>:category {{category}}</h3>
+                </div>
+                {{/with}} 
+                    <br>
 
-// router.get Створює нам один ентпоїнт
+                {{#each data}}
+                    {{#with processor}}
+                        <div>
+                          <span>brand: {{brand}}</span>
+                          <samp>model: {{model}}</samp>
+                          <b>speed:{{speed}}</b>
+                          <p>cores: {{cores}}</p>
+                          <article>cache: {{cache}}</article>
+                        </div>
+                    {{/with}}    
+                {{/each}}
+                    <br>
 
-//           ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
-  //                  ↑↑ сюди вводимо JSON дані
-})
-
-// ================================================================
-
-// Підключаємо роутер до бек-енду
-module.exports = router
+                 {{#each types}}
+                 <div>
+                    <h4>type: {{type}}</h4>
+                    <h5>size: {{size}}</h5>
+                    <h6>:speed {{speed }}</h6>
+                    <var>type: {{type}}</var>
+                    <abbr>size:{{size}}</abbr>
+                 </div>
+                 {{/each}}
+                    <br>
+              </div>
+            {{/with}}
+        </div>
+    </head>
+</html>
